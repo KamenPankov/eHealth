@@ -9,7 +9,7 @@ namespace Data.Models
         public Prescription()
         {
             this.Id = Guid.NewGuid().ToString();
-            this.Medicines = new HashSet<Medicine>();
+            this.Medicines = new HashSet<PrescriptionMedicine>();
         }
 
         [Key]
@@ -20,6 +20,6 @@ namespace Data.Models
 
         public virtual Examination Examination { get; set; }
 
-        public virtual ICollection<Medicine> Medicines { get; set; }
+        public virtual ICollection<PrescriptionMedicine> Medicines { get; set; }
     }
 }
