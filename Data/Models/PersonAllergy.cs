@@ -14,8 +14,7 @@ namespace Data.Models
 
         public Allergy Allergy { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        
 
         public DateTime DiagnosedOn { get; set; }
 

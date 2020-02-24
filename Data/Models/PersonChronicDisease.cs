@@ -16,8 +16,7 @@ namespace Data.Models
 
         public ChronicDisease ChronicDisease { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        
 
         public DateTime DiagnosedOn { get; set; }
 

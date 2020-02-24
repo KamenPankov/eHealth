@@ -15,6 +15,9 @@ namespace Data.Models
         public int Id { get; set; }
 
         [Required]
+        public string Name { get; set; }
+
+        [Required]
         public string AddressId { get; set; }
 
         public virtual Address Address { get; set; }

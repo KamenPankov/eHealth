@@ -25,7 +25,7 @@ namespace Data.Models
 
         public virtual Hospital Hospital { get; set; }
 
-        public int PersonId { get; set; }
+        public string PersonId { get; set; }
 
         public virtual Person Person { get; set; }
 
