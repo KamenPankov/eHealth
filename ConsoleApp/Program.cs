@@ -1,5 +1,6 @@
 ﻿using Data;
 using Microsoft.EntityFrameworkCore;
+using SeedDb;
 using System;
 
 namespace ConsoleApp
@@ -11,6 +12,11 @@ namespace ConsoleApp
             using (HealthDbContext db = new HealthDbContext())
             {
                 db.Database.Migrate();
+
+                Seed seed = new Seed();
+
+                seed.SeedMedicine(db);
+
             }
         }
     }
