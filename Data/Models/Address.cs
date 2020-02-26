@@ -35,8 +35,8 @@ namespace Data.Models
 
         public Relative Relative { get; set; }
 
-        public int? HospitalId { get; set; }
+        //public int? HospitalId { get; set; }
 
-        public Hospital Hospital { get; set; }
+        //public Hospital Hospital { get; set; }
     }
 }

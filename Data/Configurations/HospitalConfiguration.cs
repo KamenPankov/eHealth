@@ -9,7 +9,7 @@ namespace Data.Configurations
         public void Configure(EntityTypeBuilder<Hospital> hospital)
         {
             hospital.HasOne(h => h.Address)
-                .WithOne(a => a.Hospital)
+                .WithOne()
                 .HasForeignKey<Hospital>(h => h.AddressId)
                 .OnDelete(DeleteBehavior.Restrict);
         }

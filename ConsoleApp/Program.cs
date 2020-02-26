@@ -15,7 +15,8 @@ namespace ConsoleApp
 
                 Seed seed = new Seed();
 
-                seed.SeedMedicine(db);
+                //seed.SeedMedicine(db);
+                //seed.SeedHospital(db);
 
             }
         }
