@@ -1,5 +1,6 @@
 ﻿using Data;
 using Data.Models;
+using Data.Models.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -290,6 +291,135 @@ namespace SeedDb
 
             db.Addresses.AddRange(addresses);
             db.Hospitals.AddRange(hospitals);
+            db.SaveChanges();
+        }
+
+        public void SeedBlood(HealthDbContext db)
+        {
+            string[] bloodTypes = { "A", "B", "AB", "O" };
+
+            List<Blood> bloods = new List<Blood>();
+
+            foreach (string bloodType in bloodTypes)
+            {
+                Blood bloodNegative = new Blood
+                {
+                    BloodType = (BloodType)Enum.Parse(typeof(BloodType), bloodType),
+                    RhD = RhD.Negative
+                };
+
+                Blood bloodPositive = new Blood
+                {
+                    BloodType = (BloodType)Enum.Parse(typeof(BloodType), bloodType),
+                    RhD = RhD.Positive
+                };
+
+                bloods.Add(bloodNegative);
+                bloods.Add(bloodPositive);
+            }
+
+            db.Bloods.AddRange(bloods);
+            db.SaveChanges();
+        }
+
+        public void SeedVaccine(HealthDbContext db)
+        {
+            string[] vaccineNames =
+            {
+                "Lopinavir/ Ritonavir",
+                "Lopinavir/ Ritonavir",
+                "Dolutegravir, Abacavir, Lamivudine",
+                "Darunavir, Cobicistat",
+                "Dolutegravir, Rilpivirine",
+                "Emtricitabine, tenofovir alafenamide, darunavir and cobicistat",
+                "Inosine pranobex",
+                "Enfuvirtide",
+                "Raltegravir",
+                "Maraviroc",
+                "Dolutegravir",
+                "Anthrax antitoxin",
+                "Diphteria antitoxin",
+                "Tetanus antitoxin",
+                "Viper venom antiserum",
+                "Clostridium botulijum type A, Clostridium botulinum type B, Clostridium botulinum type E",
+                "Immunoslobuline, Human Anti-Krimean Haemorrhagic fever",
+                "Immunoglobuline, normal human for extravascular adm. Histamine dihydrochloride",
+                "Immunoglobuline, normal human for extravascular adm.",
+                "Immunoglobulins, normal human, for intravascular adm.",
+                "Human normal immunoglobulin",
+                "Haemophilus type b conjugated vaccine",
+                "Haemophilus tipe b conjugate vaccine",
+                "Diphtheria, tetanus and pertussis vaccine(adsorbed)",
+                "Diphtheria, Tetanus and Pertussis(acellular, component) vaccine",
+                "Diphtheria, Tetanus, Pertussis(acellular component) Vaccine(adsorbed, reduced antigen(s) content)",
+                "Diphtheria, Tetanus, Pertussis(acellular component) Vaccine(adsorbed, reduced antigen(s) content)",
+                "Pneumococcal polysaccharide vaccine",
+                "Pneumococcal saccharide conjugated vaccine, absorbed",
+                "Pneumococcal saccharide conjugated vaccine, absorbed",
+                "Pneumococcal polysaccharide conjugate vaccine",
+                "Tetanus Toxoid",
+                "Diphtheria and tetanus vaccine(adsorbed, reduced antigen(s) content)",
+                "Diphtheria and tetanus vaccine(ADSORBED)",
+                "Mycobacterium bovis BCG",
+                "Typhoid polysaccharide vaccine",
+                "Influenza vaccine(split virion, inactivated)",
+                "Influenza vaccine(split virion, inactivated)",
+                "Influenza vaccine(split virion, inactivated)",
+                "influenza, inactivated, split virus or surface antigen",
+                "Hepatit B antigen, purified",
+                "Hepatit B antigen, purified",
+                "Hepatitis A vaccine(inactivated, adsorbed)",
+                "Hepatitis A vaccine(inactivated, adsorbed)",
+                "Hepatitis A(inactivated) and hepatitis B(rDNA)(HAB) vaccine(adsorbed)",
+                "Measles, mumps and rubella vaccine, live",
+                "Poliomyelitis vaccine, (live attenuated)",
+                "Poliomyelitis vaccine(inactivated)",
+                "Poliomyelitis vaccine, inactivated",
+                "Rabies vaccine for human use prepared in cell cultures(inactivated)",
+                "Rotavirus vaccine, live",
+                "Rotavirus vaccine, live",
+                "Rotavirus vaccine, live",
+                "(Human papillomavirus Vaccine[Types 6, 11, 16, 18](Recombinant, adsorbed)) Адсорбирана ваксина срещу човешки папиломавирус[Тип 6, 11, 16, 18](рекомбинанта)",
+                "Human Papillomavirus vaccine[Types 16, 18](Recombinant, adjuvanted, adsorbed)",
+                "Crimean Haemorrhagic fever vaccine; inactivated",
+                "Diphteria, Tetanus, pertussis(acellular) and poliomyelitis(inactivated) vaccine(adsorbed)",
+                "Diphteria, tetanus, pertussis and poliomyelitis vaccine",
+                "Diphteria, tetanus, pertussis(acellular, component) and Poliomyelitis(inactivated) vaccine(adsorbed)",
+                "Diphteria, tetanus, pertussis(acellular, component), poliomyelitis(inactivated) and Haemophilis type b conjugate vaccine(adsorbed)",
+                "Diphtheria, tetanus, pertussis(acellular, component), hepatitis B(rDNA), poliomyelitis(inactivated) and Haemophilus influenzae type b conjugate vaccine(adsorbed)",
+                "Diphtheria, tetanus, pertussis(acellular, component), hepatitis B(rDNA), poliomyelitis(inactivated)",
+                "Morphine",
+                "Methadone",
+                "Natural phospholipids",
+                "Tuberculini purified Protein Derivative for human use",
+                "Technetium exametazime",
+                "Ioflupane",
+                "Technetium medronic acid",
+                "Technetium nanocolloid",
+                "Technetium macrosalb",
+                "Mo sodium molybdate; Tc Technetium  pertechnetate",
+                "Sodium iodide[131 I]",
+                "Technetium(99mTc) Sestamibi",
+                "Technetium tetrofosmin",
+                "Sodium chromate",
+                "technetium(99mTc) hynic - octreotide",
+                "Iobenguane",
+                "Strontium chloride"
+            };
+
+            List<Vaccine> vaccines = new List<Vaccine>();
+
+            for (int counter = 0; counter < vaccineNames.Length; counter++)
+            {
+                Vaccine vaccine = new Vaccine()
+                {
+                    Name = vaccineNames[counter]
+                };
+
+                vaccines.Add(vaccine);
+            }
+
+            db.Vaccines.AddRange(vaccines);
             db.SaveChanges();
         }
     }

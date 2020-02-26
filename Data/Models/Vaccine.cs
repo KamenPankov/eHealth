@@ -14,7 +14,7 @@ namespace Data.Models
         [Key]
         public int Id { get; set; }
 
-        [Required, MaxLength(50)]
+        [Required, MaxLength(200)]
         public string Name { get; set; }
         
         public ICollection<PersonVaccine> Persons { get; set; }

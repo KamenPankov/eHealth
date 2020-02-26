@@ -17,7 +17,8 @@ namespace ConsoleApp
 
                 //seed.SeedMedicine(db);
                 //seed.SeedHospital(db);
-
+                //seed.SeedBlood(db);
+                //seed.SeedVaccine(db);
             }
         }
     }
