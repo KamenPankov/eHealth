@@ -4,6 +4,7 @@ using Services.AddressesService;
 using Services.EmailsService;
 using Services.PhonesService;
 using Services.ServiceModels;
+using Services.VaccinesService;
 using System;
 using System.Linq;
 
@@ -16,16 +17,19 @@ namespace Services.DoctorsService
         private readonly IAddressesService addressesService;
         private readonly IPhonesService phonesService;
         private readonly IEmailsService emailsService;
+        private readonly IVaccinesService vaccinesService;
 
         public DoctorsService(HealthDbContext db,
                               IAddressesService addressesService,
                               IPhonesService phonesService,
-                              IEmailsService emailsService)
+                              IEmailsService emailsService,
+                              IVaccinesService vaccinesService)
         {
             this.db = db;
             this.phonesService = phonesService;
             this.addressesService = addressesService;
             this.emailsService = emailsService;
+            this.vaccinesService = vaccinesService;
         }
 
         public void Add(DoctorInputModel doctorInputModel)
@@ -98,6 +102,30 @@ namespace Services.DoctorsService
         public Doctor GetDoctor(string doctorId)
         {
             return this.db.Doctors.FirstOrDefault(d => d.Id == doctorId);
+        }
+
+        public void VaccinatePerson(string doctorId, string personId, VaccineInputModel vaccineInputModel)
+        {
+            PersonVaccine personVaccine = new PersonVaccine()
+            {
+                DoctorId = doctorId,
+                PersonId = personId,
+                Vaccine = this.vaccinesService.GetVaccine(vaccineInputModel.VaccineId),
+                DiagnosedOn = DateTime.Parse(vaccineInputModel.DiagnosedOn)
+            };
+
+            this.db.PersonVaccines.Add(personVaccine);
+            this.db.SaveChanges();
+        }
+
+        public void AddAllergy(string doctorId, string personId, AllergyInputModel vaccineInputModel)
+        {
+            
+        }
+
+        public void AddChronicDisease(string doctorId, string personId, ChronicDiseaseInputModel vaccineInputModel)
+        {
+            
         }
     }
 }

@@ -10,6 +10,12 @@ namespace Services.DoctorsService
     {
         void Add(DoctorInputModel doctorInputModel);
 
+        void VaccinatePerson(string doctorId, string personId, VaccineInputModel vaccineInputModel);
+
+        void AddAllergy(string doctorId, string personId, AllergyInputModel vaccineInputModel);
+
+        void AddChronicDisease(string doctorId, string personId, ChronicDiseaseInputModel vaccineInputModel);
+
         Doctor GetDoctor(string doctorId);
     }
 }

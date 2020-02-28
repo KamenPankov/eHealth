@@ -10,6 +10,7 @@ namespace Services.PersonsService
         void Add(PersonInputModel personInputModel);        
 
         void AddRelative(string personId, RelativeInputModel relativeInputModel);
+        
 
         Person GetPerson(string personId);
     }
