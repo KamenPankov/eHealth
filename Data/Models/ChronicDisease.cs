@@ -15,7 +15,7 @@ namespace Data.Models
         [Key]
         public int Id { get; set; }
 
-        [Required, MaxLength(30)]
+        [Required, MaxLength(100)]
         public string Name { get; set; }
 
         public virtual ICollection<PersonChronicDisease> Persons { get; set; }

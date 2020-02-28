@@ -422,5 +422,94 @@ namespace SeedDb
             db.Vaccines.AddRange(vaccines);
             db.SaveChanges();
         }
+
+        public void SeedAllergy(HealthDbContext db)
+        {
+            string[] allergyNames =
+            {
+                "Balsam of Peru",
+                "Egg",
+                "Fish",
+                "Fruit",
+                "Garlic",
+                "Hot peppers",
+                "Oats",
+                "Maize",
+                "Milk[10]",
+                "Peanut[12]",
+                "Poultry Meat[13]",
+                "Red Meat[15]",
+                "Rice",
+                "Sesame",
+                "Shellfish",
+                "Soy",
+                "Sulfites",
+                "Tartrazine",
+                "Tree nut[25]",
+                "Wheat[26]"
+            };
+
+            List<Allergy> allergies = new List<Allergy>();
+
+            for (int counter = 0; counter < allergyNames.Length; counter++)
+            {
+                Allergy allergy = new Allergy()
+                {
+                    Name = allergyNames[counter]
+                };
+
+                allergies.Add(allergy);
+            }
+
+            db.Allergies.AddRange(allergies);
+            db.SaveChanges();
+        }
+
+        public void SeedChronicDisease(HealthDbContext db)
+        {
+            string[] diseaseNames =
+            {
+                "Alzheimer diseaseanddementia",
+                "Arthritis",
+                "Asthma",
+                "Cancer",
+                "COPD",
+                "Crohn disease",
+                "Cystic fibrosis",
+                "Diabetes",
+                "Epilepsy",
+                "Heart disease",
+                "HIV/AIDS",
+                "Mood disorders (bipolar,cyclothymic, anddepression)",
+                "Multiple sclerosis",
+                "Parkinson disease"
+            };
+
+            List<ChronicDisease> chronicDiseases = new List<ChronicDisease>();
+
+            for (int counter = 0; counter < diseaseNames.Length; counter++)
+            {
+                ChronicDisease chronicDisease = new ChronicDisease()
+                {
+                    Name = diseaseNames[counter]
+                };
+
+                chronicDiseases.Add(chronicDisease);
+            }
+
+            db.ChronicDiseases.AddRange(chronicDiseases);
+            db.SaveChanges();
+        }
+
+        public void SeedDataBase(HealthDbContext db)
+        {
+            //this.SeedMedicine(db);
+            //this.SeedHospital(db);
+            //this.SeedBlood(db);
+            //this.SeedVaccine(db);
+            //this.SeedAllergy(db);
+            //this.SeedChronicDisease(db);
+
+        }
     }
 }
