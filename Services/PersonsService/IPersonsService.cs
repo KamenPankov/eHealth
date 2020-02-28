@@ -8,9 +8,13 @@ namespace Services.PersonsService
     {
         void Add(PersonInputModel personInputModel);
 
-        void AddRelative(string personId, RelativeInputModel relativeInputModel);
-
         void AddAddress(string personId, AddressInputModel addressInputModel);
+
+        void AddPhone(string personId, PhoneInputModel phoneInputModel);
+
+        void AddEmail(string personId, EmailAddressInputModel emailAddressInputModel);
+
+        void AddRelative(string personId, RelativeInputModel relativeInputModel);
 
         Person GetPerson(string personId);
     }

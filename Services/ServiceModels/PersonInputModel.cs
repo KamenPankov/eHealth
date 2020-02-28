@@ -12,7 +12,7 @@ namespace Services.ServiceModels
         
         public string LastName { get; set; }
 
-        public long PersonalNumber { get; set; }
+        public string PersonalNumber { get; set; }
 
         public bool HasHealthInsurance { get; set; }
 

@@ -89,6 +89,28 @@ namespace Services.PersonsService
             this.db.SaveChanges();
         }
 
+        public void AddPhone(string personId, PhoneInputModel phoneInputModel)
+        {
+            Person person = this.GetPerson(personId);
+
+            string phoneId = this.phonesService.Add(phoneInputModel);
+
+            person.Phones.Add(this.phonesService.GetPhone(phoneId));
+
+            this.db.SaveChanges();
+        }
+
+        public void AddEmail(string personId, EmailAddressInputModel emailAddressInputModel)
+        {
+            Person person = this.GetPerson(personId);
+
+            string emailId = this.emailsService.Add(emailAddressInputModel);
+
+            person.Emails.Add(this.emailsService.GetEmail(emailId));
+
+            this.db.SaveChanges();
+        }
+
         public void AddRelative(string personId, RelativeInputModel relativeInputModel)
         {
             Person person = this.GetPerson(personId);
@@ -103,7 +125,7 @@ namespace Services.PersonsService
 
             this.db.PersonRelatives.Add(personRelative);
             this.db.SaveChanges();
-        }       
+        }
 
         
     }

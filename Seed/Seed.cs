@@ -503,12 +503,12 @@ namespace SeedDb
 
         public void SeedDataBase(HealthDbContext db)
         {
-            //this.SeedMedicine(db);
-            //this.SeedHospital(db);
-            //this.SeedBlood(db);
-            //this.SeedVaccine(db);
-            //this.SeedAllergy(db);
-            //this.SeedChronicDisease(db);
+            this.SeedMedicine(db);
+            this.SeedHospital(db);
+            this.SeedBlood(db);
+            this.SeedVaccine(db);
+            this.SeedAllergy(db);
+            this.SeedChronicDisease(db);
 
         }
     }

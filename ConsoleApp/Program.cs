@@ -22,11 +22,13 @@ namespace ConsoleApp
 
             using (HealthDbContext db = new HealthDbContext())
             {
+                //db.Database.EnsureDeleted();
+                //db.Database.EnsureCreated();
+
                 db.Database.Migrate();
 
-                Seed seed = new Seed();
-
-                seed.SeedDataBase(db);
+                //Seed seed = new Seed();
+                //seed.SeedDataBase(db);
 
                 IBloodsService bloodsService = new BloodsService(db);
                 IAddressesService addressesService = new AddressesService(db);
@@ -40,21 +42,51 @@ namespace ConsoleApp
                 //    FirstName = "Kamen",
                 //    MiddleName = "Dimitrov",
                 //    LastName = "Pankov",
-                //    PersonalNumber = 7310136488,
+                //    PersonalNumber = "7310136488",
                 //    BloodId = bloodsService.GetBloodId(BloodType.A, RhD.Negative),
                 //    HasHealthInsurance = true,
-
+                //    Address = new AddressInputModel()
+                //    {
+                //        Town = "Sofia",
+                //        Street = "Lerin 45"
+                //    }
                 //};
 
                 //personsService.Add(personInputModel);
 
-                Person person = personsService.GetPerson("a1e49c97-3ef5-4e05-b44c-2c8315e96df1");
+                //Person person = personsService.GetPerson("9c591451-96e6-4dff-a225-32f092c7b56d");
 
-                personsService.AddAddress("a1e49c97-3ef5-4e05-b44c-2c8315e96df1", new AddressInputModel()
-                {
-                    Town = "Sofia",
-                    Street = "Lerin, 45"
-                });
+                //personsService.AddPhone("9c591451-96e6-4dff-a225-32f092c7b56d", new PhoneInputModel()
+                //{
+                //    PhoneNumber = "0888086820"
+                //});
+
+                //personsService.AddEmail("9c591451-96e6-4dff-a225-32f092c7b56d", new EmailAddressInputModel()
+                //{
+                //    Email = "kamen.pankov@gmail.com"
+                //});
+
+                //personsService.AddRelative("9c591451-96e6-4dff-a225-32f092c7b56d",
+                //    new RelativeInputModel()
+                //    {
+                //        FirstName = "Desi",
+                //        MiddleName = "Svetlozarova",
+                //        LastName = "Velkovska",
+                //        Address = new AddressInputModel()
+                //        {
+                //            Town = "Sofia",
+                //            Street = "ul. Dobrudjanski krai 1"
+                //        },
+                //        Phone = new PhoneInputModel()
+                //        {
+                //            PhoneNumber = "0888127876"
+                //        },
+                //        Email = new EmailAddressInputModel()
+                //        {
+                //            Email = "desi.velkovska@gmail.com"
+                //        },
+                //        RelativeType = "spouse"
+                //    });
             }
         }
     }

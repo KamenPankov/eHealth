@@ -31,10 +31,7 @@ namespace Services.RelativesService
             this.emailsService = emailsService;
         }
 
-        public string Add(RelativeInputModel relativeInputModel,
-                          AddressInputModel addressInputModel = null,
-                          PhoneInputModel phoneInputModel = null,
-                          EmailAddressInputModel emailInputModel = null)
+        public string Add(RelativeInputModel relativeInputModel)
         {
             Relative relative = new Relative()
             {
@@ -44,23 +41,23 @@ namespace Services.RelativesService
                 LastName = relativeInputModel.LastName
             };
 
-            if (addressInputModel != null)
+            if (relativeInputModel.Address != null)
             {
-                string addressId = this.addressesService.Add(addressInputModel);
+                string addressId = this.addressesService.Add(relativeInputModel.Address);
                 Address address = this.addressesService.GetAddress(addressId);
                 relative.Addresses.Add(address);
             }
 
-            if (phoneInputModel != null)
+            if (relativeInputModel.Phone != null)
             {
-                string phoneId = this.phonesService.Add(phoneInputModel);
+                string phoneId = this.phonesService.Add(relativeInputModel.Phone);
                 Phone phone = this.phonesService.GetPhone(phoneId);
                 relative.Phones.Add(phone);
             }
 
-            if (emailInputModel != null)
+            if (relativeInputModel.Email != null)
             {
-                string emailId = this.emailsService.Add(emailInputModel);
+                string emailId = this.emailsService.Add(relativeInputModel.Email);
                 EmailAddress email = this.emailsService.GetEmail(emailId);
                 relative.Emails.Add(email);
             }

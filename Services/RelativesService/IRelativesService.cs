@@ -8,10 +8,7 @@ namespace Services.RelativesService
 {
     public interface IRelativesService
     {
-        string Add(RelativeInputModel relativeInputModel,
-                   AddressInputModel addressInputModel = null,
-                   PhoneInputModel phoneInputModel = null,
-                   EmailAddressInputModel emailInputModel = null);
+        string Add(RelativeInputModel relativeInputModel);
 
         Relative GetRelative(string id);
     }

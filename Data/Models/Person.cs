@@ -16,7 +16,7 @@ namespace Data.Models
         }
 
         [Required, RegularExpression(@"\d{10}")]
-        public long PersonalNumber { get; set; }
+        public string PersonalNumber { get; set; }
 
         public bool HasHealthInsurance { get; set; }
 
