@@ -69,6 +69,39 @@ namespace Services.RelativesService
             return relative.Id;
         }
 
+        public void AddAddress(string relativeId, AddressInputModel addressInputModel)
+        {
+            Relative relative = this.GetRelative(relativeId);
+
+            string addressId = this.addressesService.Add(addressInputModel);
+
+            relative.Addresses.Add(this.addressesService.GetAddress(addressId));
+
+            this.db.SaveChanges();
+        }
+
+        public void AddPhone(string relativeId, PhoneInputModel phoneInputModel)
+        {
+            Relative relative = this.GetRelative(relativeId);
+
+            string phoneId = this.phonesService.Add(phoneInputModel);
+
+            relative.Phones.Add(this.phonesService.GetPhone(phoneId));
+
+            this.db.SaveChanges();
+        }
+
+        public void AddEmail(string relativeId, EmailAddressInputModel emailAddressInputModel)
+        {
+            Relative relative = this.GetRelative(relativeId);
+
+            string emailId = this.emailsService.Add(emailAddressInputModel);
+
+            relative.Emails.Add(this.emailsService.GetEmail(emailId));
+
+            this.db.SaveChanges();
+        }        
+
         public Relative GetRelative(string id)
         {
             return this.db.Relatives.FirstOrDefault(r => r.Id == id);

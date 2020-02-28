@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SeedDb;
 using Services.AddressesService;
 using Services.BloodsService;
+using Services.DoctorsService;
 using Services.EmailsService;
 using Services.PersonsService;
 using Services.PhonesService;
@@ -35,6 +36,7 @@ namespace ConsoleApp
                 IPhonesService phonesService = new PhonesService(db);
                 IEmailsService emailsService = new EmailsService(db);
                 IRelativesService relativesService = new RelativesService(db, addressesService, phonesService, emailsService);
+                IDoctorsService doctorsService = new DoctorsService(db, addressesService, phonesService, emailsService);
                 IPersonsService personsService = new PersonsService(db, addressesService, phonesService, emailsService, relativesService);
 
                 //PersonInputModel personInputModel = new PersonInputModel()
@@ -87,6 +89,27 @@ namespace ConsoleApp
                 //        },
                 //        RelativeType = "spouse"
                 //    });
+
+                //doctorsService.Add(new DoctorInputModel()
+                //{
+                //    FirstName = "Boiko",
+                //    LastName = "Penkov",
+                //    HospitalId = 1,
+                //    Specialty = "Cardiologist",
+                //    Address = new AddressInputModel()
+                //    {
+                //        Town = "Sofia",
+                //        Street = "ul. Alen Mak 1"
+                //    },
+                //    Phone = new PhoneInputModel()
+                //    {
+                //        PhoneNumber = "0888989898"
+                //    },
+                //    Email = new EmailAddressInputModel()
+                //    {
+                //        Email = "boiko.penkov@gmail.com"
+                //    },
+                //});
             }
         }
     }

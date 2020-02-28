@@ -1,12 +1,10 @@
 ﻿using Data.Models;
+using Services.ContactsService;
 using Services.ServiceModels;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Services.RelativesService
 {
-    public interface IRelativesService
+    public interface IRelativesService : IContactsService
     {
         string Add(RelativeInputModel relativeInputModel);
 

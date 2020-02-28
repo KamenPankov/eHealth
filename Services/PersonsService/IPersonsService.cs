@@ -1,18 +1,13 @@
 ﻿using Data.Models;
+using Services.ContactsService;
 using Services.ServiceModels;
 using System;
 
 namespace Services.PersonsService
 {
-    public interface IPersonsService
+    public interface IPersonsService : IContactsService
     {
-        void Add(PersonInputModel personInputModel);
-
-        void AddAddress(string personId, AddressInputModel addressInputModel);
-
-        void AddPhone(string personId, PhoneInputModel phoneInputModel);
-
-        void AddEmail(string personId, EmailAddressInputModel emailAddressInputModel);
+        void Add(PersonInputModel personInputModel);        
 
         void AddRelative(string personId, RelativeInputModel relativeInputModel);
 
