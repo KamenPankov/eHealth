@@ -4,13 +4,20 @@ using Data.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 using SeedDb;
 using Services.AddressesService;
+using Services.AllergiesServise;
 using Services.BloodsService;
+using Services.ChronicDiseasesService;
 using Services.DoctorsService;
 using Services.EmailsService;
+using Services.PersonAllergiesService;
+using Services.PersonChronicDiseasesService;
+using Services.PersonDiseasesInfoService;
 using Services.PersonsService;
+using Services.PersonVaccinesService;
 using Services.PhonesService;
 using Services.RelativesService;
 using Services.ServiceModels;
+using Services.VaccinesService;
 using System;
 
 namespace ConsoleApp
@@ -38,6 +45,55 @@ namespace ConsoleApp
                 IRelativesService relativesService = new RelativesService(db, addressesService, phonesService, emailsService);
                 IDoctorsService doctorsService = new DoctorsService(db, addressesService, phonesService, emailsService);
                 IPersonsService personsService = new PersonsService(db, addressesService, phonesService, emailsService, relativesService);
+                IVaccinesService vaccinesService = new VaccinesService(db);
+                IAllergiesService allergiesService = new AllergiesService(db);
+                IChronicDiseasesService chronicDiseasesService = new ChronicDiseasesService(db);
+                IPersonDiseasesService personVaccinesService = new PersonVaccinesService(db, vaccinesService);
+                IPersonDiseasesService personAlleriesService = new PersonAllergiesService(db, allergiesService);
+                IPersonDiseasesService personChronicDiseasesService = new PersonChronicDiseasesService(db, chronicDiseasesService);
+
+
+                //personChronicDiseasesService.AddPersonDiseaseInfo("bedfa8a0-46d7-4369-8f85-fe3b1be57095",
+                //    "9c591451-96e6-4dff-a225-32f092c7b56d", new PersonDiseaseInfoInputModel()
+                //    {
+                //        Name = "Parkinson disease",
+                //        DiagnosedOn = "13.10.1973"
+                //    });
+
+                //personChronicDiseasesService.AddPersonDiseaseInfo("bedfa8a0-46d7-4369-8f85-fe3b1be57095",
+                //    "9c591451-96e6-4dff-a225-32f092c7b56d", new PersonDiseaseInfoInputModel()
+                //    {
+                //        Name = "Parkinson disease new",
+                //        DiagnosedOn = "13.10.1973"
+                //    });
+
+                //personAlleriesService.AddPersonDiseaseInfo("bedfa8a0-46d7-4369-8f85-fe3b1be57095",
+                //    "9c591451-96e6-4dff-a225-32f092c7b56d", new PersonDiseaseInfoInputModel()
+                //    {
+                //        Name = "Wheat[26]",
+                //        DiagnosedOn = "13.10.1973"
+                //    });
+
+                //personAlleriesService.AddPersonDiseaseInfo("bedfa8a0-46d7-4369-8f85-fe3b1be57095",
+                //    "9c591451-96e6-4dff-a225-32f092c7b56d", new PersonDiseaseInfoInputModel()
+                //    {
+                //        Name = "Wheat[26] (1)",
+                //        DiagnosedOn = "13.10.1973"
+                //    });
+
+                //personVaccinesService.AddPersonDiseaseInfo("bedfa8a0-46d7-4369-8f85-fe3b1be57095",
+                //    "9c591451-96e6-4dff-a225-32f092c7b56d", new PersonDiseaseInfoInputModel()
+                //    {
+                //        Name = "Strontium chloride",
+                //        DiagnosedOn = "13.10.1973"
+                //    });
+
+                //personVaccinesService.AddPersonDiseaseInfo("bedfa8a0-46d7-4369-8f85-fe3b1be57095",
+                //    "9c591451-96e6-4dff-a225-32f092c7b56d", new PersonDiseaseInfoInputModel()
+                //    {
+                //        Name = "Strontium chloride new",
+                //        DiagnosedOn = "13.10.1973"
+                //    });
 
                 //PersonInputModel personInputModel = new PersonInputModel()
                 //{

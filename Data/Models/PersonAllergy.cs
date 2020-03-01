@@ -5,7 +5,14 @@ namespace Data.Models
 {
     public class PersonAllergy
     {
-        
+        public PersonAllergy()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
+        public string Id { get; set; }
+
+        [Key]
         public string PersonId { get; set; }
 
         public Person Person { get; set; }

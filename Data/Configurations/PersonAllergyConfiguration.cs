@@ -11,11 +11,21 @@ namespace Data.Configurations
     {
         public void Configure(EntityTypeBuilder<PersonAllergy> personAllergy)
         {
-            personAllergy.HasKey(pa => new { pa.PersonId, pa.AllergyId });
+            
 
             personAllergy.HasOne(pa => pa.Doctor)
                 .WithMany(d => d.PersonAllergies)
                 .HasForeignKey(pa => pa.DoctorId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            personAllergy.HasOne(pa => pa.Person)
+                .WithMany(p => p.Allergies)
+                .HasForeignKey(pa => pa.PersonId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            personAllergy.HasOne(pa => pa.Allergy)
+                .WithMany(a => a.Persons)
+                .HasForeignKey(pa => pa.AllergyId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

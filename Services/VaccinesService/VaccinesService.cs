@@ -14,7 +14,7 @@ namespace Services.VaccinesService
             this.db = db;
         }
 
-        public void Add(string name)
+        public int Add(string name)
         {
             Vaccine vaccine = new Vaccine()
             {
@@ -22,7 +22,9 @@ namespace Services.VaccinesService
             };
 
             this.db.Vaccines.Add(vaccine);
-            this.db.SaveChanges();            
+            this.db.SaveChanges();
+
+            return (int)this.GetVaccineId(vaccine.Name);
         }
 
         public Vaccine GetVaccine(int vaccineId)

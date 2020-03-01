@@ -6,7 +6,7 @@ namespace Services.VaccinesService
 {
     public interface IVaccinesService
     {
-        void Add(string name);
+        int Add(string name);
 
         int GetVaccineId(string name);
 

@@ -7,7 +7,14 @@ namespace Data.Models
 {
     public class PersonChronicDisease
     {
-        
+        public PersonChronicDisease()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
+        [Key]
+        public string Id { get; set; }
+
         public string PersonId { get; set; }
 
         public Person Person { get; set; }

@@ -5,7 +5,14 @@ namespace Data.Models
 {
     public class PersonVaccine
     {
-        
+        public PersonVaccine()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+
+        [Key]
+        public string Id { get; set; }
+
         public string PersonId { get; set; }
 
         public Person Person { get; set; }
