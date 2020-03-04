@@ -19,5 +19,8 @@ namespace Data.Models
         public string ExaminationId { get; set; }
 
         public virtual Examination Examination { get; set; }
+
+        [MaxLength(500)]
+        public string Description { get; set; }
     }
 }

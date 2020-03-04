@@ -13,6 +13,11 @@ namespace Data.Configurations
                 .HasForeignKey(t => t.HospitalizationId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            treatment.HasOne(t => t.Examination)
+                .WithMany(e => e.Treatments)
+                .HasForeignKey(t => t.ExaminationId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             treatment.HasOne(t => t.Doctor)
                 .WithMany(d => d.Treatments)
                 .HasForeignKey(t => t.DoctorId)

@@ -12,6 +12,7 @@ namespace Data.Models
             this.Id = Guid.NewGuid().ToString();
 
             this.Treatments = new HashSet<Treatment>();
+            this.Examinations = new HashSet<Examination>();
         }
 
         [Key]
@@ -30,5 +31,7 @@ namespace Data.Models
         public virtual Person Person { get; set; }
 
         public virtual ICollection<Treatment> Treatments { get; set; }
+
+        public virtual ICollection<Examination> Examinations { get; set; }
     }
 }

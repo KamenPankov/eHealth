@@ -30,6 +30,11 @@ namespace Data.Configurations
                 .WithOne(r => r.Examination)
                 .HasForeignKey<Referral>(e => e.ExaminationId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            examination.HasOne(e => e.Hospitalization)
+               .WithMany(h => h.Examinations)
+               .HasForeignKey(e => e.HospitalizationId)
+               .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Data.Models
@@ -8,6 +9,8 @@ namespace Data.Models
         public Examination()
         {
             this.Id = Guid.NewGuid().ToString();
+
+            this.Treatments = new HashSet<Treatment>();
         }
 
         [Key]
@@ -33,5 +36,11 @@ namespace Data.Models
         public string DoctorId { get; set; }
 
         public virtual Doctor Doctor { get; set; }
+
+        public string HospitalizationId { get; set; }
+
+        public Hospitalization Hospitalization { get; set; }
+
+        public virtual ICollection<Treatment> Treatments { get; set; }
     }
 }

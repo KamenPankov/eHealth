@@ -23,9 +23,13 @@ namespace Data.Models
 
         public Doctor Doctor { get; set; }
 
-        [Required]
+        
         public string HospitalizationId { get; set; }
 
         public Hospitalization Hospitalization { get; set; }
+
+        public string ExaminationId { get; set; }
+
+        public Examination Examination { get; set; }
     }
 }

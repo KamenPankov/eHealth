@@ -4,14 +4,16 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(HealthDbContext))]
-    partial class HealthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200304101913_AddDescriptionToReferral")]
+    partial class AddDescriptionToReferral
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,9 +190,6 @@ namespace Data.Migrations
                     b.Property<string>("DoctorId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("HospitalizationId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("PersonId")
                         .HasColumnType("nvarchar(450)");
 
@@ -203,8 +202,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
-
-                    b.HasIndex("HospitalizationId");
 
                     b.HasIndex("PersonId");
 
@@ -550,17 +547,13 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ExaminationId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("HospitalizationId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("DoctorId");
-
-                    b.HasIndex("ExaminationId");
 
                     b.HasIndex("HospitalizationId");
 
@@ -634,11 +627,6 @@ namespace Data.Migrations
                     b.HasOne("Data.Models.Doctor", "Doctor")
                         .WithMany("Examinations")
                         .HasForeignKey("DoctorId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Data.Models.Hospitalization", "Hospitalization")
-                        .WithMany("Examinations")
-                        .HasForeignKey("HospitalizationId")
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("Data.Models.Person", "Person")
@@ -818,15 +806,11 @@ namespace Data.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Data.Models.Examination", "Examination")
-                        .WithMany("Treatments")
-                        .HasForeignKey("ExaminationId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("Data.Models.Hospitalization", "Hospitalization")
                         .WithMany("Treatments")
                         .HasForeignKey("HospitalizationId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
