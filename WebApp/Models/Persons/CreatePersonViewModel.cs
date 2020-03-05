@@ -1,16 +1,20 @@
-﻿using Data.Models.Enums;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Services.ServiceModels;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Services.ServiceModels
+namespace WebApp.Models.Persons
 {
-    public class PersonInputModel
+    public class CreatePersonViewModel
     {
         public string FirstName { get; set; }
 
-        
+
         public string MiddleName { get; set; }
 
-        
+
         public string LastName { get; set; }
 
         public string PersonalNumber { get; set; }
@@ -19,7 +23,11 @@ namespace Services.ServiceModels
 
         public int BloodId { get; set; }
 
-        
+        public IEnumerable<SelectListItem> BloodTypes { get; set; }
+
+        public int RhD { get; set; }
+
+        public IEnumerable<SelectListItem> RhDs { get; set; }
 
         public string DoctorId { get; set; }
 
@@ -28,8 +36,5 @@ namespace Services.ServiceModels
         public PhoneInputModel Phone { get; set; }
 
         public EmailAddressInputModel Email { get; set; }
-
-
-       
     }
 }

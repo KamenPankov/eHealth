@@ -6,9 +6,16 @@ namespace Data
 {
     public class HealthDbContext : DbContext
     {
+        private readonly DbContextOptions<HealthDbContext> contextOptions;
+
         public HealthDbContext()
         {
 
+        }
+
+        public HealthDbContext(DbContextOptions<HealthDbContext> contextOptions) : base(contextOptions)
+        {
+            this.contextOptions = contextOptions;
         }
 
         public DbSet<Person> Persons { get; set; }

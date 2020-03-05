@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedDb", "Seed\SeedDb.csproj", "{3DAAD783-AA4A-4FAF-99F6-0C8ED73F1302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{F972FA47-345E-43EB-AF7E-C5C0EA0A845E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{F972FA47-345E-43EB-AF7E-C5C0EA0A845E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{8C8C0288-1023-42C6-82DA-8331CE032352}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F972FA47-345E-43EB-AF7E-C5C0EA0A845E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F972FA47-345E-43EB-AF7E-C5C0EA0A845E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F972FA47-345E-43EB-AF7E-C5C0EA0A845E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C8C0288-1023-42C6-82DA-8331CE032352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C8C0288-1023-42C6-82DA-8331CE032352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C8C0288-1023-42C6-82DA-8331CE032352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C8C0288-1023-42C6-82DA-8331CE032352}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
