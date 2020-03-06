@@ -6,7 +6,7 @@
 
 <h1>Create</h1>
 
-<h4>CreatePersonViewModel</h4>
+<h4>ID Information</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -32,6 +32,43 @@
                 <input asp-for="PersonalNumber" class="form-control" />
                 <span asp-validation-for="PersonalNumber" class="text-danger"></span>
             </div>
+
+            <h4>Address</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="@Model.Address.Town" class="control-label"></label>
+                <input asp-for="@Model.Address.Town" class="form-control" />
+                <span asp-validation-for="@Model.Address.Town" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Address.Street" class="control-label"></label>
+                <input asp-for="@Model.Address.Street" class="form-control" />
+                <span asp-validation-for="@Model.Address.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Address.AdditionalDescription" class="control-label"></label>
+                <input asp-for="@Model.Address.AdditionalDescription" class="form-control" />
+                <span asp-validation-for="@Model.Address.AdditionalDescription" class="text-danger"></span>
+            </div>
+
+            <h4>Phone</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="@Model.Phone.PhoneNumber" class="control-label"></label>
+                <input asp-for="@Model.Phone.PhoneNumber" class="form-control" />
+                <span asp-validation-for="@Model.Phone.PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <h4>Email</h4>
+            <hr />
+            <div class="form-group">
+                <label asp-for="@Model.Email.Email" class="control-label"></label>
+                <input asp-for="@Model.Email.Email" class="form-control" />
+                <span asp-validation-for="@Model.Email.Email" class="text-danger"></span>
+            </div>
+
+            <h4>Medical Information</h4>
+            <hr />
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="HasHealthInsurance" /> @Html.DisplayNameFor(model => model.HasHealthInsurance)
@@ -43,9 +80,9 @@
                 <span asp-validation-for="BloodId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RhD" class="control-label"></label>
-                <select asp-for="RhD" class="form-control" asp-items="Model.RhDs"></select>
-                <span asp-validation-for="RhD" class="text-danger"></span>
+                <label asp-for="RhDId" class="control-label"></label>
+                <select asp-for="RhDId" class="form-control" asp-items="Model.RhDs"></select>
+                <span asp-validation-for="RhDId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DoctorId" class="control-label"></label>
@@ -60,7 +97,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary">Cancel</a>
 </div>
 
 @section Scripts {

@@ -20,6 +20,7 @@ namespace WebApp.Controllers
             this.personsService = personsService;
             this.bloodsService = bloodsService;
         }
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -55,10 +56,19 @@ namespace WebApp.Controllers
                 {
                     Email = viewModel.Email.Email
                 },
-                BloodId = this.bloodsService.GetBloodId(viewModel.BloodId, viewModel.RhD),
+                BloodId = this.bloodsService.GetBloodId(viewModel.BloodId, viewModel.RhDId) == 0 ?
+                          null : (int?)this.bloodsService.GetBloodId(viewModel.BloodId, viewModel.RhDId),
                 HasHealthInsurance = viewModel.HasHealthInsurance,
                 DoctorId = viewModel.DoctorId
             };
+
+            if (!ModelState.IsValid)
+            {
+                viewModel.BloodTypes = this.bloodsService.AllBloodTypes();
+                viewModel.RhDs = this.bloodsService.AllRhDs();
+
+                return this.View(viewModel);
+            }
 
             this.personsService.Add(inputModel);
 

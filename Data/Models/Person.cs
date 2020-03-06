@@ -20,7 +20,7 @@ namespace Data.Models
 
         public bool HasHealthInsurance { get; set; }
 
-        public int BloodId { get; set; }
+        public int? BloodId { get; set; }
 
         public Blood Blood { get; set; }
 

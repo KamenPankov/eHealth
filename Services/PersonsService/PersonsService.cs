@@ -52,21 +52,25 @@ namespace Services.PersonsService
                 DoctorId = personInputModel.DoctorId
             };
 
-            if (personInputModel.Address != null)
+            if (personInputModel.Address != null &&
+                !string.IsNullOrEmpty(personInputModel.Address.Town) &&
+                !string.IsNullOrEmpty(personInputModel.Address.Street))
             {
                 string addressId = this.addressesService.Add(personInputModel.Address);
                 Address address = this.addressesService.GetAddress(addressId);
                 person.Addresses.Add(address);
             }
 
-            if (personInputModel.Phone != null)
+            if (personInputModel.Phone != null &&
+                !string.IsNullOrEmpty(personInputModel.Phone.PhoneNumber))
             {
                 string phoneId = this.phonesService.Add(personInputModel.Phone);
                 Phone phone = this.phonesService.GetPhone(phoneId);
                 person.Phones.Add(phone);
             }
 
-            if (personInputModel.Email != null)
+            if (personInputModel.Email != null &&
+                !string.IsNullOrEmpty(personInputModel.Email.Email))
             {
                 string emailId = this.emailsService.Add(personInputModel.Email);
                 EmailAddress emailAddress = this.emailsService.GetEmail(emailId);

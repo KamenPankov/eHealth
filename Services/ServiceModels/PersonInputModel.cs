@@ -17,7 +17,7 @@ namespace Services.ServiceModels
 
         public bool HasHealthInsurance { get; set; }
 
-        public int BloodId { get; set; }
+        public int? BloodId { get; set; }
 
         
 
